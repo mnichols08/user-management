@@ -4,7 +4,11 @@
   "description": "This is my first node.js project without having my hand held through a tutorial. It has become a time clock with authentication and note/task generation",
   "main": "./src/server.js",
   "scripts": {
-    "start": "nodemon ./src/server"
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "build": "cd client && npm run build",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "node server.js"
   },
   "keywords": [
     "node"
