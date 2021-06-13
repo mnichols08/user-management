@@ -4,7 +4,7 @@
   "description": "This is my first node.js project without having my hand held through a tutorial. It has become a time clock with authentication and note/task generation",
   "main": "./src/server.js",
   "scripts": {
-    "start": "nodemon ./src/server"
+    "start": "node ./src/server"
   },
   "keywords": [
     "node"
@@ -20,6 +20,7 @@
     "ejs-mate": "^3.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "express-sslify": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.11",
     "passport": "^0.4.1",
