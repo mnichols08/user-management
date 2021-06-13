@@ -1,5 +1,6 @@
 const ExpressError = require('./utils/ExpressError')
 const app = require('./app')
+const PORT = process.env.PORT || 3001
 
 app.get('/', (req, res) => res.render('home'));
 
@@ -11,4 +12,4 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-app.listen(4000, () => console.log('Serving on port 4000'));
+app.listen(PORT);
