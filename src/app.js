@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 const express = require('express')
 const path = require('path')
+const enforce = require('express-sslify')
 const mongoose = require('mongoose')
 const ejsMate = require('ejs-mate')
 const session = require('express-session')
@@ -41,6 +42,7 @@ app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
+app.use(enforce.HTTPS({ trustProtoHeader: true}))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
