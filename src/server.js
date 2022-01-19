@@ -1,6 +1,11 @@
-const ExpressError = require('./utils/ExpressError')
-const app = require('./app')
+const ExpressError = require('./utils/ExpressError');
+const app = require('./app');
 
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config()
+}
+
+const PORT = process.env.PORT || 4000;
 app.get('/', (req, res) => res.render('home'));
 
 app.all('*', (req, res, next) => next(new ExpressError('Page not found.', 404)));
@@ -11,4 +16,4 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-app.listen(4000, () => console.log('Serving on port 4000'));
+app.listen(PORT, () => console.log(`Serving on port ${PORT}`));
